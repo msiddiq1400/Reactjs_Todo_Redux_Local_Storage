@@ -7,7 +7,6 @@ const PageContent = () => {
   const todoList = useSelector(state => state.todo.todoList);
   const todos = [...todoList];
   const sortedTodoList = todos.sort((a,b) => new Date(b.time) - new Date(a.time))
-  console.log(sortedTodoList)
 
   return (
     <div>

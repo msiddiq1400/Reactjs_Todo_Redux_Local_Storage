@@ -22,7 +22,7 @@ const PageHeader = () => {
                 <option value='complete'>Complete</option>
             </SelectButton>
         </div>
-        <TodoModal modalOpen={modalOpen} toggleModalVisibility={setModalOpen}/>
+        <TodoModal type='add' modalOpen={modalOpen} setModalOpen={setModalOpen}/>
     </div>
   )
 }
