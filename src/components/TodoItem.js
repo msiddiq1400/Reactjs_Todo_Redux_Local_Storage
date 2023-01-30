@@ -8,6 +8,12 @@ import { deleteTodo, updateTodo } from '../slices/todoSlice';
 import { toast } from 'react-hot-toast';
 import TodoModal from './TodoModal';
 import CheckButton from './CheckButton';
+import { motion } from 'framer-motion';
+
+const child = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1}
+};
 
 const TodoItem = ({todo}) => {
   const dispatch = useDispatch();
@@ -41,7 +47,7 @@ const TodoItem = ({todo}) => {
 
   return (
     <>
-    <div className={styles.item}>
+    <motion.div className={styles.item} variants={child}>
         <div className={styles.todoDetails}>
             <CheckButton checked={checked} setChecked={setChecked} handleCheck={handleCheck}/>
             <div className={styles.text}>
@@ -60,7 +66,7 @@ const TodoItem = ({todo}) => {
                 <AiFillEdit />
             </div>
         </div>
-    </div>
+    </motion.div>
     <TodoModal type='update' modalOpen={updateModalOpen} setModalOpen={setUpdateModalOpen} todo={todo}/>
     </>
   )
